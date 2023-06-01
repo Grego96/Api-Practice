@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const APP_PORT = 8080 || process.env.port;
+const dbInitialSetup = require("./dbInitialSetup");
 
 const app = express();
 
@@ -12,9 +13,9 @@ const routes = require("./routes");
 
 routes(app);
 
-//dbInitialSetup()
+dbInitialSetup();
 
-app.listen((APP_PORT) => {
+app.listen(APP_PORT, () => {
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}.`);
   console.log(`[Express] Ingresar a http://localhost:${APP_PORT}.\n`);
 });

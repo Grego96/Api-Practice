@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
 );
 
 const User = require("./User")(sequelize, Model, DataTypes);
-const Todo = require("./Order")(sequelize, Model, DataTypes);
+const Todo = require("./Todo")(sequelize, Model, DataTypes);
 
 User.hasMany(Todo);
 Todo.belongsTo(User);
