@@ -10,5 +10,6 @@ const adminAccess = require("../middlewares/adminUserAccess");
 
 routes.get("/users", verifyJwt, adminAccess, userController.index);
 routes.post("/register", userController.register);
+routes.post("/login", userController.login);
 
 module.exports = routes;
