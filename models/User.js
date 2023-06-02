@@ -19,6 +19,13 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
+          validateEmail(value) {
+            var validRegex =
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (!value.match(validRegex)) {
+              throw new Error("Invalid Email format");
+            }
+          },
         },
         unique: true,
       },
