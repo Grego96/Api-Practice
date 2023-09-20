@@ -11,7 +11,7 @@ const todoController = require("../controllers/todoController");
 routes.get("/todos", verifyJwt, todoController.index);
 routes.post("/todos", verifyJwt, todoController.store);
 routes.get("/todos/:id", verifyJwt, isOwner, todoController.show);
-rooutes.post("/todos/:id", verifyJwt, isOwner, todoController.edit);
+routes.post("/todos/:id", verifyJwt, isOwner, todoController.edit);
 routes.delete("/todos/:id", verifyJwt, isOwner, todoController.destroy);
 
 module.exports = routes;
